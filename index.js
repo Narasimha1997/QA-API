@@ -9,6 +9,9 @@ let URL = 'http://api.wolframalpha.com/v1/spoken'
 app = express()
 app.use(bp.json())
 
+var port = process.env.PORT || 3000;
+
+
 app.post("/api/login", (req, resp) => {
     let data = req.body
     resp.setHeader('Content-Type', 'application/json')
@@ -43,6 +46,6 @@ app.post('/api/query', (req, resp) => {
       }
     })
 
-app.listen(3000, '192.168.0.103', ()=>{
+app.listen(port, () => {
     console.log('Server running')
 })
