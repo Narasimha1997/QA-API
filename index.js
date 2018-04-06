@@ -9,12 +9,13 @@ let URL = 'http://api.wolframalpha.com/v1/spoken'
 app = express()
 app.use(bp.json())
 
-var port = process.env.PORT || 3000;
+var port = 3000;
 
 
 app.post("/api/login", (req, resp) => {
     let data = req.body
     resp.setHeader('Content-Type', 'application/json')
+    console.log(data)
     if(data.name == 'Prasanna' && data.password == 'Prasanna123'){
         resp.send(JSON.stringify({
             success : true
@@ -46,6 +47,6 @@ app.post('/api/query', (req, resp) => {
       }
     })
 
-app.listen(port, () => {
+app.listen(port, '192.168.43.190', () => {
     console.log('Server running')
 })
